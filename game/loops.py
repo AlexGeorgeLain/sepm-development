@@ -834,7 +834,6 @@ def create_profile(clock, track, player_car, computer_car, game_info, player_pro
                     last_car_id=player_car.car_id,
                     last_track_id=track.track_id,
                 )
-                con.commit()
                 player_profile = PlayerProfile(name_entry_box.text)
                 profiles_settings(
                     clock, track, player_car, computer_car, game_info, player_profile
