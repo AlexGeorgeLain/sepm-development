@@ -572,8 +572,8 @@ def car_settings(clock, track, player_car, computer_car, game_info, player_profi
 
         for button in car_buttons:
             if button.button_rect.collidepoint(pygame.mouse.get_pos()) and click:
-                id = car_ids[car_buttons.index(button)]
-                player_car = PlayerCar(id, track.player_start_position)
+                _id = car_ids[car_buttons.index(button)]
+                player_car = PlayerCar(_id, track.player_start_position)
                 player_profile.update_last_car_id(player_car.car_id)
 
         start_index = menu_bottom_nav_buttons(start_index, all_cars, click)
@@ -624,8 +624,8 @@ def track_settings(clock, track, player_car, computer_car, game_info, player_pro
 
         for button in track_buttons:
             if button.button_rect.collidepoint(pygame.mouse.get_pos()) and click:
-                id = track_ids[track_buttons.index(button)]
-                track = Track(id)
+                _id = track_ids[track_buttons.index(button)]
+                track = Track(_id)
                 player_car = PlayerCar(
                     player_profile.last_car_id, track.player_start_position
                 )
