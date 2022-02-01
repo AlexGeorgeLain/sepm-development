@@ -60,9 +60,9 @@ class Button:
         self.button_colour = button_colour
 
         if size:
-            self.render_text = MAIN_FONT.render(self.text, 1, self.text_colour)
+            self.render_text = MAIN_FONT.render(self.text, bool(1), self.text_colour)
         else:
-            self.render_text = SMALL_FONT.render(self.text, 1, self.text_colour)
+            self.render_text = SMALL_FONT.render(self.text, bool(1), self.text_colour)
 
         self.button_rect = pygame.Rect(self.x, self.y, self.width, self.height)
 
@@ -92,7 +92,7 @@ class TextBox:
         self.height = 50
         self.background_colour = (0, 0, 0)
 
-        self.render_text = MAIN_FONT.render(self.text, 1, self.text_colour)
+        self.render_text = MAIN_FONT.render(self.text, bool(1), self.text_colour)
 
         self.textbox_rect = pygame.Rect(self.x, self.y, self.width, self.height)
 
@@ -117,7 +117,7 @@ class TextBox:
             self.text += event.unicode
             self.text = self.text.lower()
 
-        self.render_text = MAIN_FONT.render(self.text, 1, self.text_colour)
+        self.render_text = MAIN_FONT.render(self.text, bool(1), self.text_colour)
 
 
 def quit_game():
@@ -126,12 +126,12 @@ def quit_game():
 
 
 def menu_button_text(button_text, x, y):
-    text = MAIN_FONT.render(button_text.upper(), 1, (255, 255, 255))
+    text = MAIN_FONT.render(button_text.upper(), bool(1), (255, 255, 255))
     WIN.blit(text, (x, y))
 
 
 def menu_title(menu_name):
-    text = MAIN_FONT.render(menu_name.upper(), 1, (255, 255, 255))
+    text = MAIN_FONT.render(menu_name.upper(), bool(1), (255, 255, 255))
     WIN.blit(text, (WIN.get_width() / 2 - text.get_width() / 2, 10))
 
 
@@ -217,12 +217,12 @@ def menu_basic(
 
     if menu_name == "game":
         time_text = MAIN_FONT.render(
-            f"Time: {game_info.get_level_time()}s", 1, (255, 255, 255)
+            f"Time: {game_info.get_level_time()}s", bool(1), (255, 255, 255)
         )
         WIN.blit(time_text, (10, HEIGHT - time_text.get_height() - 40))
 
         time_text = MAIN_FONT.render(
-            f"Record: {track.track_record}s", 1, (255, 255, 255)
+            f"Record: {track.track_record}s", bool(1), (255, 255, 255)
         )
         WIN.blit(time_text, (10, HEIGHT - time_text.get_height()))
 
